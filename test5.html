@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul li{
+            border: 1px  solid silver;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+<!--<ul>-->
+    <!--<li class="li-list"></li>-->
+    <!--<li class="li-list"></li>-->
+    <!--<li class="li-list"></li>-->
+    <!--<li class="li-list"></li>-->
+    <!--<li class="li-list"></li>-->
+<!--</ul>-->
+<div id="table"></div>
+<marquee behavior="" direction="up">向上跑</marquee>
+<script>
+    var list = document.getElementsByClassName('li-list');
+    var data = [1,2,3,4,5,6,7,8,9,9];
+    for(let i=0;i<list.length;i++) {
+//        list[i].append("这是第" + i + "行数据");
+        list[i].append(`这是第${i}行数据`);
+    }
+    var table = document.getElementById("table");
+    var Data = `
+    <table>
+        <tr>
+            <td>${data[0]}</td>
+            <td>${data[1]}</td>
+            <td>${data[2]}</td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+    </table>`;
+    table.innerHTML = Data;
+</script>
+</body>
+</html>

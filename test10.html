@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = [];
+    var b = [1,2,3,4,5];
+    function push (array,...items) {
+        array.push(...items)
+    }
+    push(a,b);
+    console.log(a[0]);
+//    ...扩展运算符
+//    可以将字符串转化为数组
+    var str = "hello";
+    var ary = [...str];
+    console.log(ary);
+    /*copyWithin在当前数组内部，将指定位置的成员复制到其他位置（会覆盖原有成员），
+    然后返回当前数组。也就是说，使用这个方法，会修改当前数组。*/
+    console.log([1,2,3,4,5,6].copyWithin(0,3));
+//    数组的find方法
+    var x = [1, 2, 3, -4, 10].find((n) => n < 0);
+    alert(x);
+</script>
+</body>
+</html>

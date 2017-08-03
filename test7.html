@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--javascript css html jQuery bootstrape ajax-->
+<script>
+//    js里面函数没有重载机制
+//    函数声明后会提前加载
+    function test7(n) {
+        console.log(n=n+1)
+    }
+
+    test7(3);//8
+    function test7(n = 1) {
+        console.log(n=n+5)
+    }
+    var foo  = test7();
+//    foo;
+    test7(3);//8
+//    alert(test7.length)
+    /******************************箭头函数**************************/
+    var x = n =>n*n;
+//    这两个函数等价
+    function x(n) {
+        return n*n;
+    }
+    console.log(x());
+    function  showTime() {
+        this.s1 = 0;
+        this.s2 = 0;
+        setInterval(function () {
+            this.s1++;
+        },1000)
+//        箭头函数里面的this指向的是绑定定义时所在的作用域，而不是指向运行时所在的作用域
+        setInterval(()=>this.s2++,1000);
+    }
+    var time = new showTime();
+    setTimeout(function () {
+        alert(time.s1);
+        alert(time.s2);
+    },3000);
+</script>
+</body>
+</html>

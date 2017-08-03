@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //0b代表2进制,0o代表八进制
+    var Rex = /\d{2}/g;
+    var a = 0b011;
+    var b = 0o16;
+    console.log(b);
+    Number(a);//将其他进制转化为10进制
+//    alert(a);
+    console.log(isNaN(NaN));
+    console.log(isFinite(Infinity));
+    console.log(Number.isInteger(2.000));
+    console.log(Number.EPSILON);
+//    alert(Rex.flags)
+//    安全整数
+    var x = Math.pow(2, 53);
+    console.log(x);
+    console.log(x+1000);
+//    if (x == x+1){
+//        alert(1)
+//    }
+//    安全数的最大值
+    var y = Number.MAX_SAFE_INTEGER;
+//      安全数额最小值
+    var z = Number.MIN_SAFE_INTEGER;
+    console.log(y);
+    console.log(z);
+//    Math方法的扩展
+       var x1 = Math.trunc(112121.212121);
+    console.log(x1);
+    var x2 = Math.sinh(90);
+    console.log(x2);
+    var x3 = 2**5;
+    console.log(x3);
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    使用解构赋值实现一列数字的排序
+    var ary = [20,12,23,12,1,432,5435,6,2];
+    for(var i = 0;i<ary.length;i++){
+        for(var j = i+1;j<ary.length;j++){
+            if(ary[i]>ary[j]){
+                [ary[i],ary[j]] = [ary[j],ary[i]];
+            }
+        }
+    }
+    document.write(ary);
+//    使用解构赋值提取json数据
+    let data= {
+        name:"张三",
+        sex:"男",
+        age:12,
+        phone:1582930931
+    };
+    let{name,sex,age,phone} = data;
+    alert(name+" "+sex+" "+age+" "+phone);
+
+</script>
+</body>
+</html>

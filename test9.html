@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //    斐波那契数列
+    function Fibonacci(n) {
+        if (n <= 1) {
+            return 1;
+        }
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
+    }
+    var num = Fibonacci(5);
+    console.log(num);
+
+
+    //    采用尾递归的方式去实现斐波那契数列
+    function FibonacciH(n, ca = 1, cb = 1) {
+        if (n <= 1) return cb;
+        return FibonacciH(n - 1, cb, ca + cb);
+    }
+    var num1 = FibonacciH(1109);
+    console.log(num1);
+</script>
+</body>
+</html>
