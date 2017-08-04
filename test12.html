@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性的遍历</title>
+</head>
+<body>
+<script>
+//    1.for ... in obj 遍历
+    var obj = {
+        name:"zhangsan",
+        sex:"nan",
+        age:12,
+        phone:15829309883,
+        address:"陕西省西安市长安区"
+    }
+    for (x in obj){
+        console.log(x);
+    }
+//    2.Object.keys(obj)遍历
+    var key = Object.keys(obj);
+    console.log(key)
+//      3.Object.getOwnPropertyNames(obj)遍历
+    var pro = Object.getOwnPropertyNames(obj);
+    console.log(pro)
+    var Symbols = Object.getOwnPropertySymbols(obj);
+    console.log(Symbols);
+    var reflect = Reflect.ownKeys(obj);
+    console.log(reflect)
+//      Object.values返回一个数组，为对象的键值
+    var value = Object.values(obj)
+    console.log(value);
+//    Object.entries返回一个数组，为对象属性的键值对数组
+    var entries = Object.entries(obj)
+    console.log(entries)
+    var a = {
+        x:"1"
+    };
+    a?.b = 42;
+    alert(a.b);
+</script>
+</body>
+</html>

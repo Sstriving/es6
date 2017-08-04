@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    if(+0==-0){
+//        alert(1)
+//    }else {
+//        alert(2)
+//    }
+    var flag = Object.is("foo","foo");
+    var flag1 = Object.is(+0,-0);
+//    alert(flag1)
+//    Object.assign()方法
+    var a = {
+        sex:"男",
+        name:"zhangsan"
+    }
+    var b = {
+        age:"12",
+        phone:"15829309883"
+    }
+    Object.assign(a,b);
+    console.log(a);
+//    alert(a.age);
+    var  obj = {a:1};
+    console.log(Object.getOwnPropertyDescriptor(obj,"a"))
+</script>
+</body>
+</html>
