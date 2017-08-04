@@ -12,20 +12,56 @@
 <body>
 <script>
 //    Symbol数据类型，表示独一无二的值
-    let s = Symbol("foo");
-    let ss = Symbol("fool");
+//    var obj = {
+//        [a]:Symbol("xx"),
+//        [b]:Symbol("YY")
+//    }
+    var  s = Symbol("foo");
+    var  ss = Symbol("fool");
     console.log(s);
     console.log(ss);
     var a = {
         [s]:"hello"
     }
     console.log(a[s]);
-    var obj = {};
+    var obj = {
+        name:"zhangan",
+        sex:"man"
+    };
     obj[s] = "hello";
     obj[ss] = "world";
 //    获取对象的所有symbol属性名
     var objectSymbol = Object.getOwnPropertySymbols(obj);
     console.log(objectSymbol)
+//    for(var i in obj){
+//        console.log(i)
+//    }
+    console.log(Object.getOwnPropertyNames(obj))
+
+//    Reflect.ownKeys(obj)可以返回所有类型的键名，包括常规键名和 Symbol 键名。
+
+    var ownKeys = Reflect.ownKeys(obj);
+    console.log(ownKeys);
+
+//    Symbol.for("")方法
+    var s1 = Symbol.for("test");
+    var s2 = Symbol.for("test");
+    console.log(s2);
+    if (s2 === s1){
+        alert(1)
+    }
+    var num = null;
+    var ary = [1,2,3,4]
+//    alert( num instanceof null);
+//    alert(ary.constructor==Array)
+//    var str = new String("1");
+    var str = "!"
+    function  test() {
+
+    }
+//    instanceof 判断引用类型对象是什么类型的
+//    基本类型判断始终返回false
+    alert(test instanceof Function);//true
 
 </script>
 </body>
