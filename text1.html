@@ -8,25 +8,39 @@
 <script>
     var a = [],b=[];
 //    使用闭包处理循环输出i的问题
-    for (var i = 0; i < 10; i++) {
-        a[i] = function (i) {
-            return function(){
-                console.log(i);
-            }
-        }(i);
-    }
-    a[8](); // 10
+//    for (var i = 0; i < 10; i++) {
+//        a[i] = function (i) {
+//            return function(){
+//                console.log(i);
+//            }
+//        }(i);
+//    }
+//    a[8](); // 8
 //    使用let声明块级作用域
     for(let i =0;i<10;i++){
-        b[i] = function(){
-            console.log(i);
-        }
+        b[i] = function(i){
+            return function(){
+                console.log(i)
+            }
+        }(i)
     }
     b[6]();
+//    alert(i);
 //    使用let声明变量时每次循环都会是一个新的i
 //    let不存在变量提升
-    console.log(c);
-    let c = 0;
+//    console.log(c);
+//    let c = 0;
+    var x = 0;
+    var ary = [];
+    function show() {
+        return x++;
+    }
+    for(let i =0;i<3;i++){
+        ary[i] = show();
+        console.log()
+    }
+    console.log(ary);
+//    alert(xx);
 </script>
 </body>
 </html>
