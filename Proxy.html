@@ -13,6 +13,19 @@
 //    Object.create() 方法会使用指定的原型对象及其属性去创建一个新的对象。
     var obj1 = Object.create(obj);
     console.log(obj1.name);
+//    ownKeys拦截对象自身属性的读取操作
+    var hander = {
+        ownKeys(obj){
+            return ["name"];
+        }
+    };
+    let proxy = new Proxy(obj,hander);
+    console.log(Object.keys(proxy));
+    var ads  = {
+        x:1
+    };
+    var x  = Object.defineProperty(obj,name,ads);
+    console.log(x);
 </script>
 </body>
 </html>
