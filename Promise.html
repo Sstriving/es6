@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<img src="../image/smallimage.jpg" alt="">
 <script>
     //    Promise对象的例子
     //    function timeout(ms) {
@@ -28,10 +29,57 @@
         console.log(error)
     })
     console.log("hi");
-    var s = "sdddds";
-    var ary = s.split("");
-    console.log(ary)
+//    Promise.reslove()方法将现有对象转换为Promise对象
+    var p = Promise.resolve("foo");
+    console.log(p);
+    p.then(x=>console.log(x));
+//    (2)参数是thenable对象
+    var thenable = {
+        then:function (resolve,reject) {
+            resolve(42)
+        }
+    };
 
+//    Promise.reject()方法会返回一个新的Promise实例，状态为rejected
+    var p1 = Promise.reject("出错啦");
+    p1.then(function () {
+            console.log("已完成！")
+        }).catch((error) =>console.log(error));
+
+    /** 自己部署一个done方法:我们可以提供一个done方法，总是处于回调链的尾端，保证抛
+     出任何可能出现的错误**/
+    Promise.prototype.done = function (onFulfiled,onRejected) {
+        this.then(onFulfiled,onRejected)
+            .catch(function (reason) {
+                setTimeout(()=>{throw reason},0);
+            })
+    }
+    var P = Promise.resolve(thenable);
+    P.then(function (value) {
+        console.log(value);
+    })
+    P.then(function (reslove,reject,value) {
+        console.log(value)
+        throw new Error;
+    }).done(function () {
+
+    });
+
+//    应用
+//    (1)图片的加载
+    const preloadImage = function (path) {
+        return new Promise(function (resolve,reject) {
+            var image = new Image();
+            image.onload = resolve;
+            image.onerror =reject;
+            image.src = path
+        })
+    }
+    preloadImage("../image/bigimage00.jpg").then(function () {
+        alert(1)
+    }).catch(function () {
+        alert("出错啦")
+    });
 </script>
 </body>
 </html>
