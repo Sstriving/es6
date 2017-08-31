@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li class="li-list">123</li>
+    <li class="li-list">123</li>
+    <li class="li-list">123</li>
+    <li class="li-list">123</li>
+    <li class="li-list">123</li>
+    <li class="li-list">123</li>
+    <li class="li-list">123</li>
+</ul>
+</body>
+<script>
+    //    Iterator接口和for。。。of循环
+    var array = [1, 2, 43];
+    console.log(array[Symbol.iterator]().next());
+    var li_list = document.getElementsByClassName("li-list");
+    var num = 0;
+    for (let i of li_list) {
+        i.innerHTML = num++;
+    }
+    var obj = {
+        "0": "a",
+        "1": "b",
+        name: "c",
+    }
+    console.log(Object.keys(obj));
+
+    //    for(let x of obj){
+    //        console.log(x);
+    //    }
+    var ary = Array.from(obj);
+    console.log(ary)
+    for (let x of Array.from(obj)) {
+        console.log(x);
+    }
+
+    for (var key of Object.keys(obj)) {
+        console.log(key + ': ' + obj[key]);
+    }
+</script>
+</html>

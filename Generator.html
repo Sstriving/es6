@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*执行 Generator 函数会返回一个遍历器对象，
+    也就是说，Generator 函数除了状态机，还是一个遍历器
+    对象生成函数。返回的遍历器对象，可以依次遍历 Generat
+    or 函数内部的每一个状态。
+     */
+    var x = 2;
+    function* learnGenerator() {
+//        console.log(1);
+        var z = (yield x)*3;
+        yield z;
+//        console.log(3);
+        return "ending"
+    }
+    /*调用 Generator 函数后，该函数并不执行，返
+    回的也不是函数运行结果，而是一个指向内部状态的指针对
+    象，也就是上一章介绍的遍历器对象（Iterator Object）。
+     */
+    var generator =  learnGenerator();
+    console.log(generator.next());
+    console.log(generator.next(20));
+    generator.next();
+
+    let go = function*(x) {
+        console.log('x'+":"+x)
+        let a = yield x
+        console.log('xx', x)
+
+        console.log('a', a)
+
+        let b = yield x + 1
+
+        sum = a + b
+
+        yield a + b
+
+        return a + b
+    }
+    var Go = go(5);
+    console.log(Go.next());
+    console.log(Go.next(10));//5,undefined
+    console.log(Go.next(10).value);
+    console.log(Go.next());
+//    用到yield*表达式，用来在一个 Generator 函数里面执行另一个 Generator 函数。
+    function* foo () {
+        yield "a";
+        yield "b";
+    }
+    function* bar () {
+        yield "c";
+        yield* foo();
+        yield "d";
+    }
+    var Bar = bar();
+    for (let obj of Bar){
+        console.log(obj);
+    }
+</script>
+</body>
+</html>
